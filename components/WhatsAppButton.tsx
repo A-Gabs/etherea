@@ -1,0 +1,1 @@
+// Replaced by FooterLinks to match image precisely

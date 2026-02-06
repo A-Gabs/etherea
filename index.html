@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>etherea.ia | Orientación Energética</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #1f0817;
+            --bg-darker: #0d0210;
+            --accent-pink: #d946ef;
+        }
+
+        body {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #2d0b1a 40%, var(--bg-darker) 100%);
+            min-height: 100vh;
+            color: #FAF9F6; 
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .font-serif-mystical { font-family: 'Playfair Display', serif; }
+        .font-cinzel { font-family: 'Cinzel', serif; }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Efectos Hover */
+        .mystical-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .mystical-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(217, 70, 239, 0.25);
+        }
+
+        .mystical-card img {
+            transition: transform 0.6s ease;
+        }
+
+        .mystical-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 8px rgba(217, 70, 239, 0.8));
+            color: #f5d0fe;
+        }
+
+        .pill-button {
+            transition: all 0.3s ease;
+        }
+
+        .pill-button:hover {
+            background-color: #fdf2f2;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Asegurar legibilidad en móviles */
+        @media (max-width: 400px) {
+            .main-container {
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+            }
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0"
+  }
+}
+</script>
+</head>
+<body>
+    <div class="main-container w-full max-w-[380px] px-6 pb-12">
+        
+        <!-- Header Section -->
+        <header class="flex flex-col items-center pt-12 pb-8 text-center animate-fade-in">
+            <div class="relative mb-6 group">
+                <div class="absolute inset-0 bg-fuchsia-600 rounded-full blur-2xl opacity-30 group-hover:opacity-60 transition-opacity duration-700"></div>
+                <div class="relative w-28 h-28 rounded-full border-2 border-white/20 p-1 bg-black overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-105">
+                    <img src="https://cdn.beacons.ai/user_content/L2MoOLPOXQebWqRKHhFQPnHyHiz1/profile_etherea.ia.png?t=1769829568813" alt="Profile" class="w-full h-full object-cover rounded-full">
+                </div>
+            </div>
+            
+            <h1 class="text-4xl font-serif-mystical font-bold text-white tracking-widest mb-4 transition-colors hover:text-fuchsia-200">etherea.ia</h1>
+            
+            <div class="flex space-x-6 text-white/70">
+                <a href="#" aria-label="TikTok" class="social-icon">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.17-2.89-.6-4.13-1.47-.13-.08-.26-.17-.38-.26v5.48c.01 3.11-1.34 6.22-4.14 7.65-2.73 1.4-6.32 1.12-8.76-.74-2.42-1.85-3.5-5.18-2.58-8.11.83-2.65 3.39-4.74 6.18-4.93.92-.08 1.84.05 2.72.33V7.91c-.69-.22-1.43-.29-2.15-.24-2.14.13-4.11 1.78-4.59 3.86-.53 2.19.46 4.7 2.47 5.75 1.9 1.02 4.54.67 6.04-.98.71-.8.97-1.85.96-2.87V.02z"/></svg>
+                </a>
+                <a href="#" aria-label="Instagram" class="social-icon">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.245 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.332 2.633-1.308 3.608-.975.975-2.242 1.245-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.332-3.608-1.308-.975-.975-1.245-2.242-1.308-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.332-2.633 1.308-3.608.975-.975 2.242-1.245 3.608-1.308 1.266-.058 1.646-.07 4.85-.07zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.272 2.69 0.072 7.053 0.014 8.333 0 8.741 0 12s.014 3.667.072 4.947c.2 4.353 2.62 6.772 6.98 6.972 1.28.058 1.688.072 4.948.072s3.667-.014 4.947-.072c4.351-.2 6.77-2.618 6.97-6.972.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.2-4.353-2.62-6.772-6.972-6.972C15.667.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </a>
+            </div>
+        </header>
+
+        <!-- Main Services -->
+        <main class="space-y-4">
+            
+            <!-- Orientación Card -->
+            <a href="https://wa.me/51960260123?text=Quiero+una+orientación+porfavor" target="_blank" class="mystical-card block w-full overflow-hidden rounded-2xl bg-white flex h-48 animate-fade-in shadow-lg">
+                <div class="w-[45%] h-full overflow-hidden">
+                    <img src="https://cdn.beacons.ai/user_content/L2MoOLPOXQebWqRKHhFQPnHyHiz1/referenced_images/generated-images__link-in-bio__links-block__home__e62ce4b9-193d-4dd8-87a8-1a9d4e23c577__a5517642-a3d9-4576-9d59-3cda7289bdf5__070012ab-214d-4665-9642-707df108bcd6.webp?t=1769831658944" class="w-full h-full object-cover" alt="Orientación">
+                </div>
+                <div class="w-[55%] flex flex-col justify-center p-5 text-center">
+                    <h3 class="text-sm font-bold text-gray-800 mb-2 font-serif-mystical uppercase tracking-tight">Orientación</h3>
+                    <p class="text-[10px] text-gray-500 leading-relaxed font-light">Analizar su situación, orientar trabajos energéticos (retornos, endulzamientos, etc.).</p>
+                </div>
+            </a>
+
+            <!-- Una pregunta Card -->
+            <a href="https://www.paypal.com/ncp/payment/ZWFW4R36QK8L6" target="_blank" class="mystical-card block w-full overflow-hidden rounded-2xl bg-white flex h-48 animate-fade-in shadow-lg" style="animation-delay: 0.1s;">
+                <div class="w-[45%] h-full overflow-hidden">
+                    <img src="https://cdn.beacons.ai/user_content/L2MoOLPOXQebWqRKHhFQPnHyHiz1/referenced_images/generated-images__link-in-bio__links-block__home__e62ce4b9-193d-4dd8-87a8-1a9d4e23c577__1bcdda21-3117-41a5-93eb-10a41cd4ff2a__93e50813-43d1-4835-8f9c-f0ad1e25a040.webp?t=1769830454773" class="w-full h-full object-cover" alt="Pregunta">
+                </div>
+                <div class="w-[55%] flex flex-col justify-center p-5 text-center">
+                    <h3 class="text-sm font-bold text-gray-800 mb-2 font-serif-mystical uppercase tracking-tight">Una pregunta</h3>
+                    <p class="text-[10px] text-gray-500 leading-relaxed font-light">Envíame tu nombre y fecha de nacimiento o signo para una respuesta directa.</p>
+                </div>
+            </a>
+
+            <!-- Tarot Card -->
+            <a href="https://wa.me/51960260123?text=Quiero+una+sesión+de+tarot" target="_blank" class="mystical-card block w-full overflow-hidden rounded-2xl bg-white flex h-48 animate-fade-in shadow-lg" style="animation-delay: 0.2s;">
+                <div class="w-[45%] h-full overflow-hidden">
+                    <img src="https://cdn.beacons.ai/user_content/L2MoOLPOXQebWqRKHhFQPnHyHiz1/referenced_images/generated-images__link-in-bio__links-block__home__e62ce4b9-193d-4dd8-87a8-1a9d4e23c577__6a6a0c6f-1ba0-4710-abf9-68c6921f00af__353769e2-adb4-4310-acb7-ed3e7944d939.webp?t=1769831126616" class="w-full h-full object-cover" alt="Tarot">
+                </div>
+                <div class="w-[55%] flex flex-col justify-center p-5 text-center">
+                    <h3 class="text-sm font-bold text-gray-800 mb-2 font-serif-mystical uppercase tracking-tight">Sesiones de Tarot</h3>
+                    <p class="text-[10px] text-gray-500 leading-relaxed font-light mb-2">Todo lo que desees preguntar. Claridad y guía profunda en tu camino.</p>
+                    <span class="text-gray-400 text-xs animate-pulse">♡</span>
+                </div>
+            </a>
+
+            <!-- Lower Section: Pills -->
+            <div class="pt-6 space-y-4 animate-fade-in" style="animation-delay: 0.3s;">
+                <!-- Comunidad Pill -->
+                <a href="https://whatsapp.com/channel/0029VbC1tUDHltY9B8wulE0O" target="_blank" class="pill-button flex items-center bg-white rounded-[25px] p-4 shadow-md group">
+                    <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 shadow-inner">
+                        <img src="https://i.pinimg.com/736x/74/4c/64/744c64487c5fe93fa87d3a2e038b4412.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform" alt="Community">
+                    </div>
+                    <div class="flex-grow text-center">
+                        <p class="text-base font-serif-mystical font-bold text-gray-800">Comunidad</p>
+                        <p class="text-[11px] text-gray-500 italic">Tal vez algo de lo que comparta ahí resuene contigo</p>
+                    </div>
+                </a>
+
+                <!-- WhatsApp Pill -->
+                <a href="https://wa.me/51960260123" target="_blank" class="pill-button flex items-center bg-white rounded-[25px] p-4 shadow-md group">
+                    <div class="w-10 h-10 flex items-center justify-center flex-shrink-0 ml-2">
+                        <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" class="w-6 h-6 opacity-60 group-hover:opacity-100 transition-opacity" alt="WhatsApp">
+                    </div>
+                    <div class="flex-grow text-center pr-12">
+                        <p class="text-sm font-semibold text-gray-800 uppercase tracking-widest">WhatsApp</p>
+                    </div>
+                </a>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="mt-16 text-center animate-fade-in" style="animation-delay: 0.5s;">
+            <p class="text-white/20 text-[10px] tracking-[0.3em] font-cinzel uppercase hover:text-white/40 transition-colors">
+                etherea.ia 2026 @
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
